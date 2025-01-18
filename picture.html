@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <link rel="src" href="source.cfs">
+ 
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Player </title>
+    <style>
+        /* Add a black background color to the top navigation */
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+            margin: 0px auto;
+            /*You can set your own margin for top-bottom & right-left respectively*/
+              z-index: 1;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body{
+
+
+background-color: #ffcb97;
+
+
+}
+
+ body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.picture-player {
+    text-align: center;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 400px;
+}
+
+.image-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    max-width: 100%;
+    max-height: 300px;
+    transition: transform 0.2s;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+input[type="file"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+   
+    
+    
+    </style>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="topnav">
+    <a class="active" href="index.html">Home</a>
+    <a href="mediaplayer.html">Audio</a>
+    <a href="video.html">Video</a>
+    <a href="picture.html">Picture</a>
+    <a href="info.html">About</a>
+</div>
+
+
+    <div class="picture-player">
+        <input type="file" id="fileUpload" accept="image/*">
+        <div class="image-container">
+            <img id="image" src="" alt="Uploaded Image" style="display: none;">
+        </div>
+        <div class="controls">
+            <button id="zoomInBtn">Zoom In</button>
+            <button id="zoomOutBtn">Zoom Out</button>
+        </div>
+    </div>
+
+    <script>
+    const fileUpload = document.getElementById('fileUpload');
+    const imageElement = document.getElementById('image');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+
+    let zoomLevel = 1;
+
+    // Handle file upload
+    fileUpload.addEventListener('change', handleFileUpload);
+
+    // Handle image zoom in
+    zoomInBtn.addEventListener('click', () => zoomImage(1.1));
+
+    // Handle image zoom out
+    zoomOutBtn.addEventListener('click', () => zoomImage(0.9));
+
+    // Handle file upload
+    function handleFileUpload(event) {
+        const file = event.target.files[0];
+
+        if (file) {
+            const fileURL = URL.createObjectURL(file);
+            imageElement.src = fileURL;
+            imageElement.style.display = 'block'; // Show image
+            zoomLevel = 1; // Reset zoom level
+            imageElement.style.transform = `scale(${zoomLevel})`; // Reset scale
+        }
+    }
+
+    // Zoom image function
+    function zoomImage(factor) {
+        zoomLevel *= factor;
+        imageElement.style.transform = `scale(${zoomLevel})`;
+    }
+
+    </script>
+</body>
+
+</html>

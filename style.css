@@ -1,0 +1,186 @@
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+            margin: 0px auto;
+            /*You can set your own margin for top-bottom & right-left respectively*/
+              z-index: 1;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+body,
+html {
+    height: 100vh;
+}
+
+body{
+
+background-size: cover;
+
+background-color: #ffcb97;
+
+background-position: center center;
+
+background-repeat: no-repeat;
+
+background-attachment: fixed;
+}
+
+
+h1{
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: xx-large;
+
+font-weight: 500;
+
+font-style: normal;
+
+color: #fc7d43;
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+h3{
+font-family: Arial, Helvetica, sans-serif;
+
+    font-size: xx-large;
+
+    font-weight: 300;
+
+    font-style: normal;
+
+    color: #ffffff;
+}
+
+a{
+
+font-family: Arial, Helvetica, sans-serif;
+     
+}
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    margin: 0;
+
+    padding: 0;
+
+    background-color: #fe7c1f;
+
+}
+
+.container {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    padding: 20px;
+
+}
+
+.card {
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    width: 250px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    transition: transform 0.3s;
+
+}
+
+.card:hover {
+
+    transform: scale(1.05);
+
+}
+
+.card h3 {
+
+    margin: 10px 0;
+
+    font-size: 20px;
+
+    color: #333;
+
+}
+
+.card p {
+
+    font-size: 14px;
+
+    color: #555;
+
+    margin-bottom: 20px;
+
+}
+
+.card a {
+
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    background-color: #007bff;
+
+    color: rgb(255, 255, 255);
+
+    text-decoration: none;
+
+    border-radius: 4px;
+
+    font-size: 14px;
+
+}
+
+.card a:hover {
+
+    background-color: #0056b3;
+
+}

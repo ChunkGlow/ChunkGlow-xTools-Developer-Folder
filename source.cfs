@@ -1,0 +1,75 @@
+//source get
+
+#source.getFileType(".html"){
+
+when.(".html<a>").[/Webs/calculator.html].pressed{
+
+then divclass="topnav"="true"
+
+}
+
+
+when.(".html<a>").[/Webs/stopwatch.html].pressed{
+
+then divclass="topnav"="true"
+
+}
+
+
+when.(".html<a>").[/Webs/calendar.html].pressed{
+
+then divclass="topnav"="true"
+
+}
+
+when.(".html<a>").[/Webs/stopwatch.html].pressed{
+
+then divclass="topnav"="true"
+
+}
+
+when.(".html<a>").[/Webs/clock-alarm.html].pressed{
+
+then divclass="topnav"="true"
+
+}
+
+
+when.(".html<a>").[/Webs/tasker.html].pressed{
+
+then divclass="topnav"="true"
+
+}
+
+
+ when.(".html<a>").[/Webs/stopwatch.html].pressed{
+
+then divclass="topnav"="true"
+
+} 
+
+
+    when.(".html<a>").[/Webs/mediaplayer.html].pressed{
+
+then divclass="topnav"="true"
+
+}
+
+    
+ when.(".html<a>").[Webs/notepad.html].pressed{
+
+then divclass="topnav"="true"
+
+}
+
+ when.(".html<a>").[info.html].pressed{
+
+then divclass="topnav"="true"
+
+}
+    
+
+}
+#function.git(".html")ServerProtocolTest = true;
+
+//source get

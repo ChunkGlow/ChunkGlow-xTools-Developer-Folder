@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>ChunkGlow Tools</title>
+    
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+  <link rel="src" href="source.cfs">
+
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.player {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    color: #fff;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+input[type="file"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+}
+
+span {
+    margin: 0 5px;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+            margin: 0px auto;
+            /*You can set your own margin for top-bottom & right-left respectively*/
+              z-index: 1;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body{
+
+background-size: cover;
+
+background-color: #ffcb97;
+
+background-position: center center;
+
+background-repeat: no-repeat;
+
+background-attachment: fixed;
+}
+
+
+
+
+
+    </style>
+
+    
+</head>
+
+<body>
+    
+    <div class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="mediaplayer.html">Audio</a>
+        <a href="video.html">Video</a>
+        <a href="picture.html">Picture</a>
+        <a href="info.html">About</a>
+    </div>
+ \
+    
+
+<div class="player">
+    <audio id="audio" controls>
+        <source id="audioSource" src="" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="controls">
+        <input type="file" id="fileUpload" accept="audio/*,video/*">
+        <button id="playPauseBtn">Play</button>
+        <input type="range" id="seekBar" value="0" max="100" step="1">
+        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+    </div>
+</div>
+
+
+
+
+
+
+ 
+    <script>const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const seekBar = document.getElementById('seekBar');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const durationDisplay = document.getElementById('duration');
+        const fileUpload = document.getElementById('fileUpload');
+        const audioSource = document.getElementById('audioSource');
+
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('loadedmetadata', updateDuration);
+        seekBar.addEventListener('input', seek);
+
+        // Handle file upload
+        fileUpload.addEventListener('change', handleFileUpload);
+
+        // Toggle play and pause
+        function togglePlayPause() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = 'Pause';
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = 'Play';
+            }
+        }
+
+        // Update the seek bar and time display
+        function updateProgress() {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            seekBar.value = progress;
+
+            const currentMinutes = Math.floor(audio.currentTime / 60);
+            const currentSeconds = Math.floor(audio.currentTime % 60);
+            currentTimeDisplay.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' + currentSeconds : currentSeconds}`;
+        }
+
+        // Update the duration display when metadata is loaded
+        function updateDuration() {
+            const durationMinutes = Math.floor(audio.duration / 60);
+            const durationSeconds = Math.floor(audio.duration % 60);
+            durationDisplay.textContent = `${durationMinutes}:${durationSeconds < 10 ? '0' + durationSeconds : durationSeconds}`;
+        }
+
+        // Seek to a specific time when the user interacts with the seek bar
+        function seek() {
+            const newTime = (seekBar.value / 100) * audio.duration;
+            audio.currentTime = newTime;
+        }
+
+        // Handle file upload
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                const fileURL = URL.createObjectURL(file);
+                audioSource.src = fileURL;
+                audio.load();
+                playPauseBtn.textContent = 'Play';
+                seekBar.value = 0;
+                currentTimeDisplay.textContent = '0:00';
+                durationDisplay.textContent = '0:00';
+            }
+        }
+</script>
+
+</center>
+</body>
+
+</html>

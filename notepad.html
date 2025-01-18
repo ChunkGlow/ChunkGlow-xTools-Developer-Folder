@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+    <title>ChunkGlow Tools </title>
+    <link rel="icon" type="image/x-icon" href="xTools Logo.ico">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="src" href="source.cfs">
+
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        textarea {
+            width: 90%;
+            height: 60vh;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            resize: none;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="calculator.html">Calculator</a>
+        <a href="stopwatch.html">Stopwatch</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="clock-alarm.html">Clock Alarm</a>
+        <a href="tasker.html">Tasker</a>
+        <a href="mediaplayer.html">Media Player</a>
+        <a href="notepad.html">Notepad</a>
+        <a href="info.html">About</a>
+    </div>
+
+  <h1>Simple Notepad</h1>
+  <textarea id="notepad" placeholder="Type a Text"></textarea>
+  <button id="saveButton">Save to Computer</button>
+
+
+
+    <script>
+
+            document.getElementById('saveButton').addEventListener('click', function () {
+                // Get the content of the textarea
+                const text = document.getElementById('notepad').value;
+
+                // Create a Blob with the text content
+                const blob = new Blob([text], { type: 'text/plain' });
+
+                // Create a link element
+                const link = document.createElement('a');
+
+                // Set the download attribute with a filename
+                link.download = 'notes.txt';
+
+                // Create a URL for the Blob and set it as the href
+                link.href = window.URL.createObjectURL(blob);
+
+                // Programmatically click the link to trigger the download
+                link.click();
+
+                // Clean up by revoking the object URL
+                window.URL.revokeObjectURL(link.href);
+            });
+
+    </script>
+
+
+</body>
+
+</html>
