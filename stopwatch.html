@@ -11,6 +11,26 @@
     <link rel="src" href="source.cfs">
 
 
+    <style>
+
+body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0px;
+        }
+        .stopwatch {
+            font-size: 2rem;
+            margin: 20px;
+        }
+        button {
+            font-size: 1rem;
+            margin: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -28,9 +48,54 @@
     </div>
 
 
+    <h1>Stopwatch</h1>
+    <div class="stopwatch">00:00:00</div>
+    <button onclick="startStopwatch()">Start</button>
+    <button onclick="pauseStopwatch()">Pause</button>
+    <button onclick="resetStopwatch()">Reset</button>
 
 
-    <script></script>
+
+    <script>
+
+        let timer;
+        let elapsedTime = 0;
+        let isRunning = false;
+
+        function startStopwatch() {
+            if (!isRunning) {
+                isRunning = true;
+                timer = setInterval(() => {
+                    elapsedTime++;
+                    updateDisplay();
+                }, 1000);
+            }
+        }
+
+        function pauseStopwatch() {
+            clearInterval(timer);
+            isRunning = false;
+        }
+
+        function resetStopwatch() {
+            clearInterval(timer);
+            elapsedTime = 0;
+            isRunning = false;
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            let seconds = elapsedTime % 60;
+            let minutes = Math.floor(elapsedTime / 60) % 60;
+            let hours = Math.floor(elapsedTime / 3600);
+
+            document.querySelector('.stopwatch').textContent =
+                (hours < 10 ? "0" : "") + hours + ":" +
+                (minutes < 10 ? "0" : "") + minutes + ":" +
+                (seconds < 10 ? "0" : "") + seconds;
+        }
+
+    </script>
 
 
 </body>
