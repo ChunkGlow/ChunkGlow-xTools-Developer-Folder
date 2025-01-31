@@ -36,3 +36,9 @@ LICENSED BY CHUNKGLOW TECHNOLOGIES CORPORATION
 ChunkGlow, xTools, and i#  are trademarks of ChunkGlow Studios AB
 
 ®™ All Rights Reserved. 2025 ChunkGLow
+
+Version JW1.65.768.68 
+
+Build No : CG47TYF4RI8YTRTD
+
+ChunkGlow CentoLicense No. : 2025013116
