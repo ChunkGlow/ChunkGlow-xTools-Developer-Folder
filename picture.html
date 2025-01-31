@@ -41,7 +41,9 @@
     color: white;
 }
 
-body,
+
+
+
 html {
     height: 100%;
 }
@@ -54,7 +56,7 @@ background-color: #ffcb97;
 
 }
 
- body {
+ .new{
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -131,6 +133,7 @@ input[type="file"] {
     <a href="info.html">About</a>
 </div>
 
+<div class="new">
 
     <div class="picture-player">
         <input type="file" id="fileUpload" accept="image/*">
@@ -143,6 +146,8 @@ input[type="file"] {
         </div>
     </div>
 
+
+</div>
     <script>
     const fileUpload = document.getElementById('fileUpload');
     const imageElement = document.getElementById('image');

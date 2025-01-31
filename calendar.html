@@ -22,9 +22,8 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-body{
+.new{
   display: flex;
-  align-items: center;
   padding: 0 10px;
   justify-content: center;
   min-height: 100vh;
@@ -193,8 +192,9 @@ font-weight: 500;
 
 font-style: normal;
 
-color: #fc7d43;
+color: #fbfaf3;
 
+text-align: center;
 
 }
 
@@ -229,10 +229,23 @@ font-family: Arial, Helvetica, sans-serif;
 </head>
 <body>
 
+<div class="topnav">
+  <a class="active" href="index.html">Home</a>
+  <a href="calculator.html">Calculator</a>
+  <a href="stopwatch.html">Stopwatch</a>
+  <a href="calendar.html">Calendar</a>
+  <a href="clock-alarm.html">Clock Alarm</a>
+  <a href="tasker.html">Tasker</a>
+  <a href="mediaplayer.html">Media Player</a>
+  <a href="notepad.html">Notepad</a>
+  <a href="info.html">About</a>
+</div>
+
+
 <h1>Calendar</h1>
 
 
-
+<div class="new">
 <div class="wrapper">
     <header>
         <p class="current-date"></p>
@@ -255,16 +268,6 @@ font-family: Arial, Helvetica, sans-serif;
     </div>
 </div>
 
-<div class="topnav">
-  <a class="active" href="index.html">Home</a>
-  <a href="calculator.html">Calculator</a>
-  <a href="stopwatch.html">Stopwatch</a>
-  <a href="calendar.html">Calendar</a>
-  <a href="clock-alarm.html">Clock Alarm</a>
-  <a href="tasker.html">Tasker</a>
-  <a href="mediaplayer.html">Media Player</a>
-  <a href="notepad.html">Notepad</a>
-  <a href="info.html">About</a>
 </div>
 
 <script>const daysTag = document.querySelector(".days"),
