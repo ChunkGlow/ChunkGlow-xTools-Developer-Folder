@@ -27,7 +27,7 @@ II. Program Lanuages
 
 3. Cascading StyleSheet - .css
 
-4. ChunkGlow Objective i# - .cfs, .cfl, .cfw
+4. ChunkGlow Objective i# (Discontinnued) - .cfs, .cfl, .cfw
 
 =========================================================
 
